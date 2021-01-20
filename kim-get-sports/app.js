@@ -1,21 +1,19 @@
-const db = require('./db');
+const db = require('/opt/utils');
+let _db;
 
 exports.handler = async (event) => {
-
-    await db.initDb((err, dab) => {
+    await db.initDb((err, connection) => {
         if (err) {
             console.log(err);
         } else {
+            _db = connection;
             console.log('db started');
         }
     });
-
-    const sports = [];
-    await db.getDb().db()
+    
+    const sports = await _db.db()
         .collection('sports')
-        .find().forEach(sportDoc => {
-            sports.push(sportDoc);
-        })
+        .find().toArray()
 
     const response = {
         statusCode: 200,
