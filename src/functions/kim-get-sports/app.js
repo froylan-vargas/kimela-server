@@ -1,4 +1,4 @@
-const db = require('/opt/utils');
+const db = require('/opt/db');
 let _db;
 
 exports.handler = async (event) => {

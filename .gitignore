@@ -127,6 +127,7 @@ $RECYCLE.BIN/
 
 #Template files 
 *.yaml
+*.zip
 
 
 # End of https://www.gitignore.io/api/osx,node,linux,windows
